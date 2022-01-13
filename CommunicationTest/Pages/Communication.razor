@@ -1,0 +1,70 @@
+﻿@page "/communications"
+
+<PageTitle>Communications</PageTitle>
+
+@using CommunicationTest.Data
+@using global::Data
+@inject CommunicationService CommunicationService
+
+<h1>Communications</h1>
+
+<p>This component demonstrates dockerized communication in multiple containers between Blazor WebApplication and Console application (via RabbitMQ) and MSSQL server.</p>
+
+@if (messages == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <EditForm Model="@messageModel">
+        <InputText class="m-1" id="message" @bind-Value="messageModel.MessageString" placeholder="Write the message here"></InputText>
+        <button class="btn btn-outline-primary m-1" type="button" @onclick="@Message">Send message to RabbitMQ</button>
+    </EditForm>
+
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Message</th>
+                    <th>Creation time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var message in messages)
+                {
+                    <tr>
+                        <td>@message.Id</td>
+                        <td>@message.MessageString</td>
+                        <td>@message.CreationTime</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-primary" type="button" @onclick="@Sync">Sync Data</button>
+}
+
+@code {
+    private List<Message>? messages;
+
+    private Message messageModel = new Message();
+
+    protected override async Task OnInitializedAsync()
+    {
+        messages = await CommunicationService.GetCommunicationData();
+    }
+
+    void Message()
+    {
+        CommunicationService.SendMessageToQueue(messageModel);
+        messageModel = new Message();
+
+
+    }
+
+    async Task Sync()
+    {
+        messages = await CommunicationService.GetCommunicationData();
+    }
+}

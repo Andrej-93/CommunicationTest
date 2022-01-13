@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    environment:
+            - RABBITMQ_DEFAULT_USER=guest
+            - RABBITMQ_DEFAULT_PASS=guest
+
+  communicationdb:
+    image: mcr.microsoft.com/mssql/server
+
+  communicationtest:
+    image: ${DOCKER_REGISTRY-}communicationtest
+    build:
+      context: .
+      dockerfile: CommunicationTest/Dockerfile
+
+  rabbitmq.consumer:
+    image: ${DOCKER_REGISTRY-}rabbitmqconsumer
+    build:
+      context: .
+      dockerfile: RabbitMQ.Consumer/Dockerfile
+
+volumes:
+  communication_data:
