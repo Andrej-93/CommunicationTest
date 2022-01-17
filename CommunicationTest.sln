@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommunicationTest", "CommunicationTest\CommunicationTest.csproj", "{BD048CC9-7CE0-4951-B36A-4D16BA5088BC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ.Consumer", "RabbitMQ.Consumer\RabbitMQ.Consumer.csproj", "{4F3E34D5-6D6A-47E5-9973-F841F83DBD84}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{0C66597D-3616-438D-8FA2-B1701E35CAD5}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A769E1DC-A635-4C08-80C9-B3B49919D795}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQ.ConsumerTest", "RabbitMQ.ConsumerTest\RabbitMQ.ConsumerTest.csproj", "{B12DACEE-5CC9-43BB-AA79-B94FB4F5F689}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		{BD048CC9-7CE0-4951-B36A-4D16BA5088BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD048CC9-7CE0-4951-B36A-4D16BA5088BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD048CC9-7CE0-4951-B36A-4D16BA5088BC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F3E34D5-6D6A-47E5-9973-F841F83DBD84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F3E34D5-6D6A-47E5-9973-F841F83DBD84}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F3E34D5-6D6A-47E5-9973-F841F83DBD84}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F3E34D5-6D6A-47E5-9973-F841F83DBD84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0C66597D-3616-438D-8FA2-B1701E35CAD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0C66597D-3616-438D-8FA2-B1701E35CAD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C66597D-3616-438D-8FA2-B1701E35CAD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -33,6 +29,10 @@ Global
 		{A769E1DC-A635-4C08-80C9-B3B49919D795}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A769E1DC-A635-4C08-80C9-B3B49919D795}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A769E1DC-A635-4C08-80C9-B3B49919D795}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B12DACEE-5CC9-43BB-AA79-B94FB4F5F689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B12DACEE-5CC9-43BB-AA79-B94FB4F5F689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B12DACEE-5CC9-43BB-AA79-B94FB4F5F689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B12DACEE-5CC9-43BB-AA79-B94FB4F5F689}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

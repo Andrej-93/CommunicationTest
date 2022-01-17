@@ -2,10 +2,7 @@ version: '3.4'
 
 services:
   rabbitmq:
-    image: rabbitmq:3-management
-    environment:
-            - RABBITMQ_DEFAULT_USER=guest
-            - RABBITMQ_DEFAULT_PASS=guest
+    image: rabbitmq:3-management-alpine
 
   communicationdb:
     image: mcr.microsoft.com/mssql/server
@@ -16,11 +13,11 @@ services:
       context: .
       dockerfile: CommunicationTest/Dockerfile
 
-  rabbitmq.consumer:
-    image: ${DOCKER_REGISTRY-}rabbitmqconsumer
+  rabbitmq.consumertest:
+    image: ${DOCKER_REGISTRY-}rabbitmqconsumertest
     build:
       context: .
-      dockerfile: RabbitMQ.Consumer/Dockerfile
+      dockerfile: RabbitMQ.ConsumerTest/Dockerfile
 
 volumes:
   communication_data:

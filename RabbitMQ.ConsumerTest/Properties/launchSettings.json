@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "RabbitMQ.Consumer": {
+    "RabbitMQ.ConsumerTest": {
       "commandName": "Project"
     },
     "Docker": {

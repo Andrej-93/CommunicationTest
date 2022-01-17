@@ -1,7 +1,5 @@
 using CommunicationTest.Data;
 using Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +11,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddTransient<AppDbContext>(s => new AppDbContext(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddTransient<WeatherForecastService>();
-builder.Services.AddTransient<CommunicationService>();
+builder.Services.AddSingleton<CommunicationService>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 
 var app = builder.Build();

@@ -20,14 +20,18 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:Default=Server=communicationdb;Database=CommunicationDb;User Id=sa;Password=Pwd12345!"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
         - communicationdb
         - rabbitmq
     ports:
       - "5000:80"
 
-  rabbitmq.consumer:
-    container_name: rabbitmq.consumer    
+  rabbitmq.consumertest:
+    container_name: rabbitmq.consumertest    
+    environment:
+        - "ConnectionStrings:Default=Server=communicationdb;Database=CommunicationDb;User Id=sa;Password=Pwd12345!"
+        - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
         - communicationdb
         - rabbitmq
